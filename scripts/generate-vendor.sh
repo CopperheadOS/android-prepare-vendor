@@ -13,7 +13,7 @@ readonly REALPATH_SCRIPT="$SCRIPTS_DIR/realpath.sh"
 readonly CONSTS_SCRIPT="$SCRIPTS_DIR/constants.sh"
 readonly COMMON_SCRIPT="$SCRIPTS_DIR/common.sh"
 readonly TMP_WORK_DIR=$(mktemp -d /tmp/android_vendor_setup.XXXXXX) || exit 1
-declare -a SYS_TOOLS=("cp" "sed" "zipinfo" "jarsigner" "awk" "shasum")
+declare -a SYS_TOOLS=("cp" "sed" "zipinfo" "jarsigner" "awk" "sha1sum")
 
 # Standalone symlinks. Need to also take care standalone firmware bin
 # symlinks between /data/misc & /system/etc/firmware.
@@ -971,7 +971,7 @@ gen_sigs_file() {
 
   find "$inDir"/vendor* -type f ! -name "file_signatures.txt" | sort | while read -r file
   do
-    shasum -a1 "$file" | sed "s#$inDir/##" >> "$sigsFile"
+    sha1sum "$file" | sed "s#$inDir/##" >> "$sigsFile"
   done
 }
 
