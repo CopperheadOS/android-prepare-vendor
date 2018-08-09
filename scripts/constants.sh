@@ -8,7 +8,7 @@ declare -ra SUPPORTED_DEVICES=("bullhead" "flounder" "angler" "sailfish" "marlin
 
 # URLs to download factory images from
 readonly NID_URL="https://google.com"
-readonly GURL="https://developers.google.com/android/nexus/images"
+readonly GURL="https://developers.google.com/android/images"
 readonly TOSURL="https://developers.google.com/profile/acknowledgeNotification"
 
 # oatdump dependencies URLs as compiled from AOSP matching API levels
