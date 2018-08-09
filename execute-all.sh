@@ -321,9 +321,9 @@ if isDarwin; then
   _UMOUNT=umount
 else
   # For Linux use debugfs
-  USE_DEBUGFS=true
-  # SYS_TOOLS+=("fusermount")
-  # _UMOUNT="fusermount -u"
+  USE_DEBUGFS=false
+  SYS_TOOLS+=("fusermount")
+  _UMOUNT="fusermount -u"
 fi
 
 # Check that system tools exist
